@@ -134,7 +134,7 @@ function MatchPage() {
               transition={{ delay: 0.1 }}
               className="glass rounded-2xl p-6 lg:col-span-2"
             >
-              <h2 className="font-display text-2xl">Insights</h2>
+              <h2 className="font-display text-2xl">Análise Inteligente</h2>
               <ul className="mt-4 space-y-3">
                 {match.insights.map((i, idx) => (
                   <li key={idx} className="flex gap-3 text-sm text-foreground/90">
@@ -145,8 +145,8 @@ function MatchPage() {
               </ul>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <KeywordList title="Encontradas" items={match.matchedKeywords} tone="match" />
-                <KeywordList title="Ausentes" items={match.missingKeywords} tone="gap" />
+                <KeywordList title="Competências Encontradas" items={match.matchedKeywords} tone="match" />
+                <KeywordList title="Palavras-chave Ausentes" items={match.missingKeywords} tone="gap" />
               </div>
 
               <div className="mt-8 flex flex-wrap justify-end gap-2">
@@ -188,10 +188,10 @@ function KeywordList({
         {items.map((k) => (
           <span
             key={k}
-            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs ${
+            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium tracking-wide backdrop-blur-sm transition-colors ${
               tone === "match"
-                ? "border-primary/30 bg-primary/10 text-primary-foreground/90"
-                : "border-accent/30 bg-accent/10 text-accent-foreground/90"
+                ? "border-emerald-400/30 bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25"
+                : "border-rose-400/30 bg-rose-500/15 text-rose-300 hover:bg-rose-500/25"
             }`}
           >
             {tone === "match" ? <Check className="h-3 w-3" /> : <AlertCircle className="h-3 w-3" />}
