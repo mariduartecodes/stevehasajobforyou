@@ -11,8 +11,8 @@ import { extractPdfText } from "@/lib/pdf";
 export const Route = createFileRoute("/upload")({
   head: () => ({
     meta: [
-      { title: "Upload Resume — Resume Ritual" },
-      { name: "description", content: "Upload your resume to begin the ATS match." },
+      { title: "Currículo — Resume Match" },
+      { name: "description", content: "Envie seu currículo para iniciar a análise ATS." },
     ],
   }),
   component: UploadPage,
@@ -35,19 +35,19 @@ function UploadPage() {
       } else if (file.name.match(/\.(txt|md)$/i)) {
         extracted = await file.text();
       } else {
-        toast.error("Use PDF or .txt. DOCX coming soon — paste as text instead.");
+        toast.error("Use PDF ou .txt. DOCX em breve — cole como texto por enquanto.");
         return;
       }
       if (extracted.trim().length < 50) {
-        toast.error("Couldn't read enough text from that file.");
+        toast.error("Não foi possível extrair texto suficiente do arquivo.");
         return;
       }
       setText(extracted);
       setFileName(file.name);
-      toast.success(`Parsed ${file.name}`);
+      toast.success(`Arquivo processado: ${file.name}`);
     } catch (e) {
       console.error(e);
-      toast.error("Failed to parse file.");
+      toast.error("Falha ao processar o arquivo.");
     } finally {
       setBusy(false);
     }
@@ -55,15 +55,15 @@ function UploadPage() {
 
   const onContinue = () => {
     if (text.trim().length < 100) {
-      toast.error("Resume content too short.");
+      toast.error("Conteúdo do currículo muito curto.");
       return;
     }
     if (!jobDescription) {
-      toast.error("Add a job description first.");
+      toast.error("Adicione uma descrição de vaga primeiro.");
       navigate({ to: "/analyze" });
       return;
     }
-    setResume(text.trim(), fileName || "resume.txt");
+    setResume(text.trim(), fileName || "curriculo.txt");
     navigate({ to: "/match" });
   };
 
@@ -74,13 +74,13 @@ function UploadPage() {
       <main className="relative mx-auto max-w-3xl px-6 pt-10 pb-24">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3 py-1 text-xs text-muted-foreground">
-            <FileText className="h-3 w-3 text-accent" /> Step 2 of 3
+            <FileText className="h-3 w-3 text-accent" /> Etapa 2 de 3
           </div>
           <h1 className="font-display text-4xl md:text-5xl">
-            Your <span className="text-gradient">artifact</span>.
+            Seu <span className="text-gradient">currículo</span>.
           </h1>
           <p className="mt-2 max-w-xl text-muted-foreground">
-            Drop your resume — PDF or text. We parse it locally before the ritual.
+            Envie seu currículo em PDF ou texto. O processamento é feito localmente antes da análise.
           </p>
         </motion.div>
 
@@ -112,9 +112,9 @@ function UploadPage() {
             )}
           </div>
           <p className="mt-4 font-display text-lg">
-            {fileName ? fileName : "Drop your resume here"}
+            {fileName ? fileName : "Arraste seu currículo aqui"}
           </p>
-          <p className="mt-1 text-xs text-muted-foreground">PDF or TXT · up to ~5MB</p>
+          <p className="mt-1 text-xs text-muted-foreground">PDF ou TXT · até ~5MB</p>
           <input
             id="resume-file"
             type="file"
@@ -127,7 +127,7 @@ function UploadPage() {
         {text && (
           <div className="glass mt-6 rounded-2xl p-5">
             <p className="mb-2 text-xs uppercase tracking-widest text-muted-foreground">
-              Parsed preview · edit if needed
+              Pré-visualização · edite se necessário
             </p>
             <textarea
               value={text}
@@ -144,7 +144,7 @@ function UploadPage() {
             disabled={!text || busy}
             className="inline-flex items-center gap-2 rounded-md bg-witch px-6 py-2.5 text-sm font-medium text-primary-foreground hover-glow disabled:opacity-40"
           >
-            Run the ritual <ArrowRight className="h-4 w-4" />
+            Analisar currículo <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </main>
