@@ -188,10 +188,10 @@ function KeywordList({
         {items.map((k) => (
           <span
             key={k}
-            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs ${
+            className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium tracking-wide backdrop-blur-sm transition-colors ${
               tone === "match"
-                ? "border-primary/30 bg-primary/10 text-primary-foreground/90"
-                : "border-accent/30 bg-accent/10 text-accent-foreground/90"
+                ? "border-emerald-400/30 bg-emerald-500/15 text-emerald-300 hover:bg-emerald-500/25"
+                : "border-rose-400/30 bg-rose-500/15 text-rose-300 hover:bg-rose-500/25"
             }`}
           >
             {tone === "match" ? <Check className="h-3 w-3" /> : <AlertCircle className="h-3 w-3" />}
