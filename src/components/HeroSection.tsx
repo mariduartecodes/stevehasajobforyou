@@ -207,24 +207,19 @@ function ScoreRing({ value }: { value: number }) {
   const off = c - (value / 100) * c;
   return (
     <svg width="72" height="72" viewBox="0 0 72 72" className="-rotate-90">
-      <circle cx="36" cy="36" r={r} stroke="oklch(0.22 0.04 295)" strokeWidth="6" fill="none" />
+      <circle cx="36" cy="36" r={r} stroke="oklch(0.16 0.02 350)" strokeWidth="6" fill="none" />
       <circle
         cx="36"
         cy="36"
         r={r}
-        stroke="url(#g)"
+        stroke="oklch(0.68 0.22 350)"
         strokeWidth="6"
         fill="none"
         strokeLinecap="round"
         strokeDasharray={c}
         strokeDashoffset={off}
       />
-      <defs>
-        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.62 0.25 305)" />
-          <stop offset="100%" stopColor="oklch(0.7 0.28 350)" />
-        </linearGradient>
-      </defs>
     </svg>
+
   );
 }

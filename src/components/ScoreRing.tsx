@@ -11,7 +11,7 @@ export function ScoreRing({ value, size = 160 }: { value: number; size?: number 
           cx={size / 2}
           cy={size / 2}
           r={r}
-          stroke="oklch(0.22 0.04 295)"
+          stroke="oklch(0.16 0.02 350)"
           strokeWidth="10"
           fill="none"
         />
@@ -19,7 +19,7 @@ export function ScoreRing({ value, size = 160 }: { value: number; size?: number 
           cx={size / 2}
           cy={size / 2}
           r={r}
-          stroke="url(#scoreGrad)"
+          stroke="oklch(0.68 0.22 350)"
           strokeWidth="10"
           fill="none"
           strokeLinecap="round"
@@ -28,12 +28,7 @@ export function ScoreRing({ value, size = 160 }: { value: number; size?: number 
           animate={{ strokeDashoffset: off }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         />
-        <defs>
-          <linearGradient id="scoreGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="oklch(0.62 0.25 305)" />
-            <stop offset="100%" stopColor="oklch(0.7 0.28 350)" />
-          </linearGradient>
-        </defs>
+
       </svg>
       <div className="absolute text-center">
         <div className="font-display text-4xl text-gradient">{value}%</div>
