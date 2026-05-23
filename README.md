@@ -7,6 +7,8 @@ Um site de análise de vagas de emprego que compara os requisitos da oportunidad
 Este projeto foi realizado junto à live do **Bruno Lima na DIO** para testar o uso de Inteligência Artificial na criação de soluções reais e rápidas. 
 A ideia foi ver como a IA generativa pode ajudar na prototipagem e no desenvolvimento, focando na lógica de negócio!
 
+> Megaprompt > IA > Propotipo > DIO
+
 
 --------------------------
 
