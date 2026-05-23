@@ -237,7 +237,7 @@ function EditorPage() {
                 {match!.missingKeywords.slice(0, 12).map((k) => (
                   <span
                     key={k}
-                    className="rounded-full border border-accent/30 bg-accent/10 px-2 py-0.5 text-xs"
+                    className="rounded-full border border-rose-400/30 bg-rose-500/15 px-2.5 py-0.5 text-xs font-medium tracking-wide text-rose-300 backdrop-blur-sm hover:bg-rose-500/25"
                   >
                     {k}
                   </span>
