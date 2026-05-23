@@ -70,13 +70,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Resume Match — Otimização ATS" },
+      { title: "STEVE has a job for you — AI Resume Matcher" },
       {
         name: "description",
         content:
           "Otimização de currículo com IA para sistemas ATS. Aumente suas chances em cada processo seletivo.",
       },
-      { property: "og:title", content: "Resume Match — Otimização ATS" },
+      { property: "og:title", content: "STEVE has a job for you — AI Resume Matcher" },
       {
         property: "og:description",
         content: "Otimização de currículo com IA para sistemas ATS.",
@@ -84,6 +84,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#050505" },
+      { name: "twitter:title", content: "STEVE has a job for you — AI Resume Matcher" },
+      { name: "description", content: "STEVE é uma plataforma com inteligência artificial que analisa vagas de emprego e compara automaticamente com seu currículo. Descubra seu percentual de compatib" },
+      { property: "og:description", content: "STEVE é uma plataforma com inteligência artificial que analisa vagas de emprego e compara automaticamente com seu currículo. Descubra seu percentual de compatib" },
+      { name: "twitter:description", content: "STEVE é uma plataforma com inteligência artificial que analisa vagas de emprego e compara automaticamente com seu currículo. Descubra seu percentual de compatib" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/db791259-591a-45c4-a18f-2eb7f1d25235" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/db791259-591a-45c4-a18f-2eb7f1d25235" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
