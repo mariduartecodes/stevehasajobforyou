@@ -1,36 +1,36 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Target, Wand2, FileCheck2, Brain } from "lucide-react";
+import { ArrowRight, Sparkles, Target, FileText, FileCheck2, Brain } from "lucide-react";
 import { Nav } from "./Nav";
 import { AuroraBg } from "./AuroraBg";
 
 const features = [
   {
     icon: Brain,
-    title: "Semantic Matching",
-    body: "Our AI reads the vacancy and your resume like a seasoned recruiter — surfacing real overlap, not surface keywords.",
+    title: "Análise semântica",
+    body: "A IA interpreta a vaga e o currículo como um recrutador experiente, identificando aderência real além de palavras-chave.",
   },
   {
     icon: Target,
-    title: "ATS Score",
-    body: "A live breakdown of keywords, formatting, experience, technical and soft-skill alignment.",
+    title: "Score ATS",
+    body: "Métrica detalhada de palavras-chave, formatação, experiência, competências técnicas e comportamentais.",
   },
   {
-    icon: Wand2,
-    title: "Truthful Rewrite",
-    body: "We rewrite, never invent. Your facts — sharpened, restructured, optimized to pass parsers.",
+    icon: FileText,
+    title: "Reescrita fiel",
+    body: "Reescrevemos sem inventar. Seus fatos reorganizados e otimizados para passar pelos filtros automatizados.",
   },
   {
     icon: FileCheck2,
-    title: "ATS-Safe Export",
-    body: "Clean, monochromatic PDF templates engineered for flawless parsing.",
+    title: "Exportação ATS",
+    body: "Modelos PDF limpos e monocromáticos, preparados para leitura precisa pelos sistemas ATS.",
   },
 ];
 
 const steps = [
-  { n: "01", t: "Paste the job", d: "Drop the vacancy description. We extract stack, seniority, must-haves." },
-  { n: "02", t: "Upload your resume", d: "PDF, DOCX or text. We parse experience, skills, projects." },
-  { n: "03", t: "Witness the ritual", d: "AI matches, scores and rewrites — optimized for the bots and the humans." },
+  { n: "01", t: "Cole a vaga", d: "Insira a descrição da vaga. Extraímos requisitos, stack e nível de senioridade." },
+  { n: "02", t: "Envie seu currículo", d: "PDF ou texto. Lemos experiência, competências e projetos." },
+  { n: "03", t: "Receba a análise", d: "A IA compara, pontua e reescreve o currículo otimizado para ATS e recrutadores." },
 ];
 
 export function HeroSection() {
@@ -49,14 +49,14 @@ export function HeroSection() {
         >
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
             <Sparkles className="h-3 w-3 text-accent" />
-            AI-powered resume rituals
+            Otimização de currículo com IA
           </div>
           <h1 className="font-display text-5xl leading-[1.05] sm:text-6xl md:text-7xl">
-            Beat the <span className="text-gradient">ATS.</span>
+            Aprovado no <span className="text-gradient">ATS.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-            Your resume deserves better than rejection bots. Transform it into an
-            ATS weapon — calibrated for every role you actually want.
+            Seu currículo merece chegar até o recrutador. Otimize-o para cada vaga
+            e aumente significativamente suas chances de avançar nos processos.
           </p>
 
           <motion.div
@@ -69,14 +69,14 @@ export function HeroSection() {
               to="/analyze"
               className="group inline-flex items-center gap-2 rounded-md bg-witch px-6 py-3 text-sm font-medium text-primary-foreground hover-glow"
             >
-              Start Matching
+              Começar análise
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
             <Link
               to="/upload"
               className="rounded-md border border-border bg-card/40 px-6 py-3 text-sm font-medium text-foreground backdrop-blur hover:bg-card"
             >
-              Upload Resume
+              Enviar currículo
             </Link>
           </motion.div>
 
@@ -91,7 +91,7 @@ export function HeroSection() {
               <div className="flex items-center justify-between">
                 <div className="text-left">
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                    ATS Score
+                    Score ATS
                   </p>
                   <p className="mt-1 font-display text-4xl text-gradient">87%</p>
                 </div>
@@ -99,10 +99,10 @@ export function HeroSection() {
               </div>
               <div className="mt-5 space-y-2.5">
                 {[
-                  ["Keywords", 92],
-                  ["Experience", 86],
-                  ["Technical Skills", 89],
-                  ["Formatting", 95],
+                  ["Palavras-chave", 92],
+                  ["Experiência", 86],
+                  ["Competências técnicas", 89],
+                  ["Formatação", 95],
                 ].map(([label, v]) => (
                   <div key={label as string}>
                     <div className="mb-1 flex justify-between text-xs text-muted-foreground">
@@ -126,10 +126,10 @@ export function HeroSection() {
       {/* FEATURES */}
       <section className="relative mx-auto max-w-6xl px-6 pb-24">
         <h2 className="font-display text-3xl md:text-4xl">
-          A studio for your <span className="text-gradient">career artifact</span>.
+          Uma plataforma completa para sua <span className="text-gradient">carreira</span>.
         </h2>
         <p className="mt-3 max-w-xl text-muted-foreground">
-          Four sharp tools, woven into one ritual.
+          Quatro ferramentas integradas em um único fluxo.
         </p>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -152,7 +152,7 @@ export function HeroSection() {
 
       {/* HOW IT WORKS */}
       <section className="relative mx-auto max-w-6xl px-6 pb-24">
-        <h2 className="font-display text-3xl md:text-4xl">How the ritual works</h2>
+        <h2 className="font-display text-3xl md:text-4xl">Como funciona</h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {steps.map((s, i) => (
             <motion.div
@@ -180,22 +180,22 @@ export function HeroSection() {
             style={{ background: "var(--gradient-aurora)" }}
           />
           <h2 className="font-display text-3xl md:text-5xl">
-            Ready to <span className="text-gradient">transmute</span> your resume?
+            Pronto para <span className="text-gradient">otimizar</span> seu currículo?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Five minutes. One resume. Infinitely better odds.
+            Cinco minutos. Um currículo. Resultados mensuráveis.
           </p>
           <Link
             to="/analyze"
             className="mt-8 inline-flex items-center gap-2 rounded-md bg-witch px-7 py-3 text-sm font-medium text-primary-foreground hover-glow"
           >
-            Begin the ritual <ArrowRight className="h-4 w-4" />
+            Começar agora <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
 
       <footer className="relative border-t border-border/50 py-8 text-center text-xs text-muted-foreground">
-        Resume Ritual · crafted for modern careers
+        Resume Match · feito para carreiras modernas
       </footer>
     </div>
   );

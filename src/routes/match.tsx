@@ -12,19 +12,19 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/match")({
   head: () => ({
     meta: [
-      { title: "Match Result — Resume Ritual" },
-      { name: "description", content: "Your ATS score, gaps and optimized resume." },
+      { title: "Resultado — Resume Match" },
+      { name: "description", content: "Seu score ATS, lacunas e currículo otimizado." },
     ],
   }),
   component: MatchPage,
 });
 
 const BREAKDOWN_LABELS: Record<string, string> = {
-  keywords: "Keywords Match",
-  formatting: "Formatting",
-  experience: "Experience Alignment",
-  technical: "Technical Skills",
-  soft: "Soft Skills",
+  keywords: "Palavras-chave",
+  formatting: "Formatação",
+  experience: "Aderência da experiência",
+  technical: "Competências técnicas",
+  soft: "Competências comportamentais",
 };
 
 function MatchPage() {
@@ -51,7 +51,7 @@ function MatchPage() {
       setMatch(result as any);
     } catch (e: any) {
       console.error(e);
-      const msg = e?.message || "Match failed";
+      const msg = e?.message || "Falha na análise";
       setError(msg);
       toast.error(msg);
     } finally {
@@ -66,19 +66,19 @@ function MatchPage() {
       <main className="relative mx-auto max-w-5xl px-6 pt-10 pb-24">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
           <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-3 py-1 text-xs text-muted-foreground">
-            <Sparkles className="h-3 w-3 text-accent" /> Step 3 of 3
+            <Sparkles className="h-3 w-3 text-accent" /> Etapa 3 de 3
           </div>
           <h1 className="font-display text-4xl md:text-5xl">
-            The <span className="text-gradient">verdict</span>.
+            O <span className="text-gradient">resultado</span>.
           </h1>
         </motion.div>
 
         {loading && (
           <div className="glass glow mt-12 flex flex-col items-center justify-center rounded-2xl py-20">
             <Loader2 className="h-10 w-10 animate-spin text-accent" />
-            <p className="mt-6 font-display text-xl">Performing the ritual…</p>
+            <p className="mt-6 font-display text-xl">Analisando…</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Extracting keywords · scoring alignment · rewriting bullets
+              Extraindo palavras-chave · pontuando aderência · reescrevendo bullets
             </p>
           </div>
         )}
@@ -86,13 +86,13 @@ function MatchPage() {
         {error && !loading && (
           <div className="glass mt-12 rounded-2xl p-8">
             <AlertCircle className="h-6 w-6 text-destructive" />
-            <h2 className="mt-3 font-display text-xl">The ritual broke</h2>
+            <h2 className="mt-3 font-display text-xl">Falha na análise</h2>
             <p className="mt-1 text-sm text-muted-foreground">{error}</p>
             <button
               onClick={run}
               className="mt-5 rounded-md bg-witch px-5 py-2 text-sm font-medium text-primary-foreground hover-glow"
             >
-              Try again
+              Tentar novamente
             </button>
           </div>
         )}
@@ -106,7 +106,7 @@ function MatchPage() {
             >
               <ScoreRing value={Math.round(match.score)} />
               <p className="mt-4 text-center text-sm text-muted-foreground">
-                Overall compatibility
+                Compatibilidade geral
               </p>
               <div className="mt-6 w-full space-y-3">
                 {Object.entries(match.breakdown).map(([k, v]) => (
@@ -145,16 +145,8 @@ function MatchPage() {
               </ul>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <KeywordList
-                  title="Matched"
-                  items={match.matchedKeywords}
-                  tone="match"
-                />
-                <KeywordList
-                  title="Missing"
-                  items={match.missingKeywords}
-                  tone="gap"
-                />
+                <KeywordList title="Encontradas" items={match.matchedKeywords} tone="match" />
+                <KeywordList title="Ausentes" items={match.missingKeywords} tone="gap" />
               </div>
 
               <div className="mt-8 flex flex-wrap justify-end gap-2">
@@ -162,13 +154,13 @@ function MatchPage() {
                   onClick={run}
                   className="rounded-md border border-border bg-card/40 px-5 py-2 text-sm text-foreground hover:bg-card"
                 >
-                  Re-run
+                  Reprocessar
                 </button>
                 <Link
                   to="/editor"
                   className="inline-flex items-center gap-2 rounded-md bg-witch px-5 py-2 text-sm font-medium text-primary-foreground hover-glow"
                 >
-                  Open editor <ArrowRight className="h-4 w-4" />
+                  Abrir editor <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </motion.div>
@@ -192,9 +184,7 @@ function KeywordList({
     <div>
       <p className="mb-3 text-xs uppercase tracking-widest text-muted-foreground">{title}</p>
       <div className="flex flex-wrap gap-1.5">
-        {items.length === 0 && (
-          <span className="text-xs text-muted-foreground">None</span>
-        )}
+        {items.length === 0 && <span className="text-xs text-muted-foreground">Nenhuma</span>}
         {items.map((k) => (
           <span
             key={k}

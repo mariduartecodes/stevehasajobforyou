@@ -10,8 +10,8 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/editor")({
   head: () => ({
     meta: [
-      { title: "Editor — Resume Ritual" },
-      { name: "description", content: "Refine and export your ATS-optimized resume." },
+      { title: "Editor — Resume Match" },
+      { name: "description", content: "Refine e exporte seu currículo otimizado para ATS." },
     ],
   }),
   component: EditorPage,
@@ -54,7 +54,7 @@ function EditorPage() {
   };
 
   const exportPdf = () => {
-    toast.success("Opening print dialog…");
+    toast.success("Abrindo diálogo de impressão…");
     setTimeout(() => window.print(), 200);
   };
 
@@ -69,17 +69,17 @@ function EditorPage() {
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 print:hidden">
           <div>
             <h1 className="font-display text-4xl md:text-5xl">
-              The <span className="text-gradient">editor</span>.
+              O <span className="text-gradient">editor</span>.
             </h1>
             <p className="mt-2 max-w-xl text-muted-foreground">
-              Fine-tune anything. Export when the energy feels right.
+              Ajuste cada detalhe e exporte quando estiver pronto.
             </p>
           </div>
           <button
             onClick={exportPdf}
             className="inline-flex items-center gap-2 rounded-md bg-witch px-5 py-2.5 text-sm font-medium text-primary-foreground hover-glow"
           >
-            <Download className="h-4 w-4" /> Export PDF
+            <Download className="h-4 w-4" /> Exportar PDF
           </button>
         </div>
 
@@ -106,7 +106,7 @@ function EditorPage() {
               className="mt-1 text-xs text-muted-foreground print:text-gray-600"
             />
 
-            <Section title="Summary">
+            <Section title="Resumo">
               <Editable
                 multiline
                 value={resume.summary}
@@ -115,7 +115,7 @@ function EditorPage() {
               />
             </Section>
 
-            <Section title="Skills">
+            <Section title="Competências">
               <Editable
                 value={resume.skills.join(", ")}
                 onChange={(v) =>
@@ -128,7 +128,7 @@ function EditorPage() {
               />
             </Section>
 
-            <Section title="Experience">
+            <Section title="Experiência">
               <div className="space-y-6">
                 {resume.experience.map((e, i) => (
                   <div key={i}>
@@ -180,14 +180,14 @@ function EditorPage() {
                       onClick={() => addBullet(i)}
                       className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-accent print:hidden"
                     >
-                      <Plus className="h-3 w-3" /> Add bullet
+                      <Plus className="h-3 w-3" /> Adicionar item
                     </button>
                   </div>
                 ))}
               </div>
             </Section>
 
-            <Section title="Education">
+            <Section title="Formação">
               <div className="space-y-3">
                 {resume.education.map((ed, i) => (
                   <div key={i} className="text-sm print:text-black">
@@ -220,18 +220,18 @@ function EditorPage() {
           {/* Sidebar */}
           <aside className="space-y-4 print:hidden">
             <div className="glass rounded-2xl p-5">
-              <h3 className="font-display text-lg">ATS Score</h3>
+              <h3 className="font-display text-lg">Score ATS</h3>
               <p className="mt-2 font-display text-4xl text-gradient">
                 {Math.round(match!.score)}%
               </p>
               <p className="mt-1 text-xs text-muted-foreground">
-                Updated from last ritual
+                Atualizado da última análise
               </p>
             </div>
 
             <div className="glass rounded-2xl p-5">
               <h3 className="flex items-center gap-2 font-display text-lg">
-                <Sparkles className="h-4 w-4 text-accent" /> Missing keywords
+                <Sparkles className="h-4 w-4 text-accent" /> Palavras-chave ausentes
               </h3>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {match!.missingKeywords.slice(0, 12).map((k) => (
@@ -244,12 +244,12 @@ function EditorPage() {
                 ))}
               </div>
               <p className="mt-3 text-xs text-muted-foreground">
-                Weave these in naturally — only where they truly apply.
+                Inclua-as de forma natural, apenas onde realmente se aplicam.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-5">
-              <h3 className="font-display text-lg">Quick wins</h3>
+              <h3 className="font-display text-lg">Ações rápidas</h3>
               <ul className="mt-3 space-y-2 text-xs text-muted-foreground">
                 {match!.insights.slice(0, 4).map((i, idx) => (
                   <li key={idx} className="flex gap-2">
