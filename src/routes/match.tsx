@@ -134,7 +134,7 @@ function MatchPage() {
               transition={{ delay: 0.1 }}
               className="glass rounded-2xl p-6 lg:col-span-2"
             >
-              <h2 className="font-display text-2xl">Insights</h2>
+              <h2 className="font-display text-2xl">Análise Inteligente</h2>
               <ul className="mt-4 space-y-3">
                 {match.insights.map((i, idx) => (
                   <li key={idx} className="flex gap-3 text-sm text-foreground/90">
@@ -145,8 +145,8 @@ function MatchPage() {
               </ul>
 
               <div className="mt-8 grid gap-6 md:grid-cols-2">
-                <KeywordList title="Encontradas" items={match.matchedKeywords} tone="match" />
-                <KeywordList title="Ausentes" items={match.missingKeywords} tone="gap" />
+                <KeywordList title="Competências Encontradas" items={match.matchedKeywords} tone="match" />
+                <KeywordList title="Palavras-chave Ausentes" items={match.missingKeywords} tone="gap" />
               </div>
 
               <div className="mt-8 flex flex-wrap justify-end gap-2">
